@@ -1,0 +1,14 @@
+<div class="daily-panel">
+	<ng-container *ngFor="let daily of dataService.onecallData.daily; let i = index">
+		<div class="daily-panel__container">
+			<div class="daily-panel__item">
+				<div>{{daily.dt + dataService.onecallData.timezone_offset | day}}</div>
+				<div>{{daily.dt + dataService.onecallData.timezone_offset | date}}</div>
+				<div><img src="http://openweathermap.org/img/wn/{{daily.weather[0].icon}}@2x.png" alt={{daily.weather[0].description}}/></div>
+				<div>днём: {{daily.temp.day > 0 ? "+" : ""}}{{daily.temp.day}}&#176;C</div>
+				<div>ночью: {{daily.temp.night > 0 ? "+" : ""}}{{daily.temp.night}}&#176;C</div>
+				<div>{{daily.weather[0].description}}</div>
+			</div>
+		</div>
+	</ng-container>
+</div>

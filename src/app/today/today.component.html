@@ -1,0 +1,48 @@
+<div class="today-panel">
+	<div class="today-panel__data">
+		<div class="today-panel__row">
+			<div class="today-panel__column">
+				<div class="today-info">{{dataService.onecallData.current.dt + dataService.onecallData.timezone_offset | date}}</div>
+				<div class="today-info">{{dataService.onecallData.current.dt + dataService.onecallData.timezone_offset | time}}</div>
+				<div class="today-info">{{dataService.onecallData.current.dt + dataService.onecallData.timezone_offset | day}}</div>
+			</div>
+		</div>
+		<div class="today-panel__row">
+			<div class="today-panel__container-main">
+				<div class="today-panel__container">
+					<div class="temperature">{{dataService.onecallData.current.temp > 0 ? "+" : ""}}{{dataService.onecallData.current.temp}}&#176;C</div>
+				</div>
+				<div class="today-panel__container today-img"><img class="today-icon" src="http://openweathermap.org/img/wn/{{dataService.onecallData.current.weather[0].icon}}@4x.png" alt={{dataService.onecallData.current.weather[0].description}} /></div>
+				<div class="today-panel__column">
+					<div class="today-panel__container">{{dataService.onecallData.current.weather[0].description}}</div>
+					<div class="today-panel__container">ощущается как {{dataService.onecallData.current.feels_like > 0 ? "+" : ""}}{{dataService.onecallData.current.feels_like}}&#176;C</div>
+				</div>
+			</div>
+		</div>
+		<div class="today-panel__row">
+			<div class="today-panel__item">
+				<img class="weather-icon" src="./assets/img/wind.svg" alt="Ветер" />
+				<span>{{dataService.onecallData.current.wind_speed}} м/с</span>
+				<img class="weather-icon" src="./assets/img/wind_arrow.svg" style="transform: rotate({{dataService.onecallData.current.wind_deg + 180}}deg)" alt="Направление ветра" />
+			</div>
+			<div class="today-panel__item">
+				<img class="weather-icon" src="./assets/img/humidity.svg" alt="Влажность" />
+				<span>{{dataService.onecallData.current.humidity}}%</span>
+			</div>
+			<div class="today-panel__item">
+				<img class="weather-icon" src="./assets/img/pressure.svg" alt="Давление" />
+				<span>{{dataService.onecallData.current.pressure | hpatommhg}} мм рт ст</span>
+			</div>
+		</div>
+		<div class="today-panel__row">
+			<div class="today-panel__container">
+				<div class="today-panel__item">Восход: {{dataService.onecallData.current.sunrise + dataService.onecallData.timezone_offset | time}}</div>
+				<div class="today-panel__item">Закат: {{dataService.onecallData.current.sunset + dataService.onecallData.timezone_offset | time}}</div>
+				<div class="today-panel__item">Облачность: {{dataService.onecallData.current.clouds}} %</div>
+				<div class="today-panel__item">Точка росы: {{dataService.onecallData.current.dew_point}}&#176;C</div>
+				<div class="today-panel__item">UV-индекс: {{dataService.onecallData.current.uvi}} </div>
+				<div class="today-panel__item">Видимость: {{dataService.onecallData.current.visibility}} м</div>
+			</div>
+		</div>
+	</div>
+</div>

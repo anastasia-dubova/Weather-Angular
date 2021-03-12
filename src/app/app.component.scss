@@ -1,0 +1,13 @@
+.wrapper {
+	display: block;
+	width: 90%;
+	min-width: 320px;
+	min-height: 560px;
+	margin: 0 auto;
+}
+
+@media (max-width: 480px){
+  .wrapper {
+    width: 98%;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="api-key" *ngIf="!dataService.apiKey">
+	<div class="api-key__container">
+		<div class="api-key__title">
+			Введите API-ключ для доступа к данным о погоде на сайте openweathermap.org
+		</div>
+		<form class="api-key__form" (submit)="submitApiKey()">
+			<input type="text" placeholder="API Key" name="apiKey" [(ngModel)]="key" (keydown)="changeHandler()" />
+			<button>Применить</button>
+		</form>
+		<div class="api-key__error">
+			{{errorMessage}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,154 @@
+.error {
+  color: #df4b41;
+  font-size: 16px;
+  line-height: 20px;
+}
+.main-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  &__info {
+    display: flex;
+    font-size: 29px;
+    padding: 5px;
+  }
+  &__city{
+    color: #0168bb;
+    padding: 0 0 0 10px;
+  }
+  &__search {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0;
+  }
+  &__search input{
+    width: 100%;
+    font-size: 16px;
+    line-height: 36px;
+    height: 36px;
+  }
+}
+.current-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #75a2e7;
+  color: #fff;
+}
+/*--------------------*/
+#map {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.today {
+  position: relative;
+  margin: 5px;
+}
+
+/*--------------------*/
+.bottom_line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 10px;
+}
+.hide {
+  display: none;
+}
+/*--------------------*/
+
+@media (max-width: 768px){
+  .main-panel {
+    height: 100vh;
+    padding: 3px;
+  }
+  .current-panel, .today {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px){
+  #map {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    height: 30%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px){
+  .main-panel {
+    height: 100vh;
+    padding: 3px;
+  }
+  .header__info {
+    font-size: 22px;
+  }
+  .current-panel, .today {
+    height: 100%;
+  }
+}
+
+@media (max-height: 750px) and (max-width: 480px){
+  #map {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    height: 35%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 480px){
+  #map {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    height: 30%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+@media (max-height: 620px){
+  .main-panel, .current-panel, .today {
+    height: auto;
+  }
+}
+@media (max-height: 620px) and (max-width: 480px){
+  #map {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    height: 30%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+@media (max-height: 500px) and (max-width: 480px){
+  #map {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    height: 50%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}

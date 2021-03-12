@@ -1,0 +1,22 @@
+<div class="hourly-panel">
+	<div class="hourly-panel__container" *ngIf="dataService.onecallData && dataService.onecallData.hourly">
+		<div class="nav nav-backward" [class.hide]="dataService.currentHour === 0" (click)="dataService.increaseCurrentValue(-1)"></div>
+		<div class="hourly-panel__row">
+			<ng-container *ngFor="let data of dataService.onecallData.hourly; let i = index">
+			<div class="hourly-panel__item">
+				<div>{{data.dt + dataService.onecallData.timezone_offset | date}} {{data.dt + dataService.onecallData.timezone_offset | time}}</div>
+				<div class="sm"><img src="http://openweathermap.org/img/wn/{{data.weather[0].icon}}@2x.png" title={{data.weather[0].description}} alt={{data.weather[0].description}}/></div>
+				<div class="xs"><img src="http://openweathermap.org/img/wn/{{data.weather[0].icon}}.png" title={{data.weather[0].description}} alt={{data.weather[0].description}}/></div>
+				<div>{{data.temp > 0 ? "+" : ""}}{{data.temp}}&#176;C</div>
+			</div>
+			</ng-container>
+		</div>
+		
+		<div class="nav nav-forward" [class.hide]="dataService.currentHour + dataService.countHoursDisplayed >= dataService.maxHours" (click)="dataService.increaseCurrentValue(1)"></div>
+	</div>
+	<div class="nav-selector">
+		<ng-container *ngFor="let i of dataService.pageSelection">
+			<div class=selector [class.active]="i === dataService.currentHour/dataService.countHoursDisplayed" (click)="dataService.changeCurrentValue(i)"></div>
+		</ng-container>
+	</div>
+</div>

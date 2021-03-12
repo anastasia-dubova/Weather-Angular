@@ -1,0 +1,35 @@
+<ng-container *ngIf="dataService.apiKey && dataService.onecallData">
+	<div class="container">
+		<div class="main-panel">
+			<div class="error">{{dataService.errorMessage}}</div>
+			<div class="header">
+				<div class="header__info">
+					<p>Прогноз погоды</p>
+					<div class="header__city" *ngIf="dataService.weatherData">{{dataService.weatherData.name}}</div>
+				</div>
+				<form class="header__search" (submit)="submitCity($event)">
+					<input type='text'
+							 name='city'
+							 placeholder='Город'
+							 [(ngModel)]="cityName"/>
+					<button>Получить погоду</button>
+				</form>
+			</div>
+			<div class="current-panel">
+				<div class="today">
+					<app-today></app-today>
+					<div id="map"
+							leaflet
+							(leafletMapReady)="onMapReady($event)"
+							(leafletDoubleClick)="dblClickMap($event)"
+							[leafletOptions]="mapOptions"
+							>
+					</div>
+				</div>
+				<div class="bottom_line"></div>
+				<app-hourly-list></app-hourly-list>
+			</div>
+		</div>
+		<app-daily-list></app-daily-list>
+	</div>
+</ng-container>
